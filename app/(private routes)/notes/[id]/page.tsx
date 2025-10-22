@@ -1,5 +1,5 @@
 import { QueryClient, dehydrate, HydrationBoundary } from "@tanstack/react-query";
-import { fetchNoteById } from "@/lib/api";
+import { fetchNoteById } from "@/lib/api/api";
 import NoteDetailsClient from "./NoteDetails.client";
 import { Metadata } from "next";
 
@@ -14,11 +14,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: note.title,
     description: note.content.slice(0, 30),
     openGraph: {
-      title: note.title,
-      description: note.content.slice(0, 30),
+      title: `Note ${note.title}`,
+      description: note.content.slice(0, 50),
       type: "article",
       siteName: "Note Hub",
-      url: `https://08-zustand-sigma-five.vercel.app/notes/${id}`,
+      url: `https://notehub-api.goit.study/api/notes/${id}`,
       images: [{
         url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
         width: 1200,

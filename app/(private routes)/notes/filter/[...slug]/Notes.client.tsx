@@ -3,12 +3,12 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useDebounce } from "use-debounce";
-import fetchNotes from "@/lib/api";
+import fetchNotes from "@/lib/api/api";
 import { NotesClientProps } from "@/types/note";
 import css from "./page.module.css"
-import SearchBox from "../../../../components/SearchBox/SearchBox";
-import Pagination from "../../../../components/Pagination/Pagination";
-import NoteList from "../../../../components/NoteList/NoteList";
+import SearchBox from "@/components/SearchBox/SearchBox";
+import Pagination from "@/components/Pagination/Pagination";
+import NoteList from "@/components/NoteList/NoteList";
 import { useRouter } from "next/navigation";
 
 export default function NotesClient({ tag }: NotesClientProps) {

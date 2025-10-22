@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { CreateNotePost } from "@/lib/api";
+import { CreateNotePost } from "@/lib/api/clientApi";
 import { persist } from "zustand/middleware";
 import { NoteTag } from "@/types/note";
 
