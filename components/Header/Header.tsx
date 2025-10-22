@@ -1,6 +1,7 @@
 import Link from "next/link";
 import css from "./Header.module.css"
 import TagsMenu from "../TagsMenu/TagsMenu";
+import AuthNavigation from "../AuthNavigation/AuthNavigation";
 
 export default function Header() {
   return (
@@ -16,8 +17,8 @@ export default function Header() {
               Home
             </Link>
           </li>
+            <AuthNavigation />
           <li>
-            {/* <Link href="/notes">Notes</Link> */}
             <TagsMenu />
           </li>
         </ul>
