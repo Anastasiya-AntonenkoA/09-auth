@@ -10,19 +10,17 @@ export interface NoteHttpResponse {
 export default async function fetchNotes(
   query: string,
   page: number,
-  tag?: NoteTag
+  tag?: string,
 ): Promise<NoteHttpResponse> {
-  const params: Record<string, string | number>  = {
-    search: query,
-    page,
-    perPage: 12,
-  };
+  const response = await apiServer.get<NoteHttpResponse>("/notes", {
+    params: {
+      search: query,
+      page,
+      tag: tag || undefined,
+      perPage: 12,
+    },
+  });
 
-  if (tag) {
-    params.tag = tag;
-  }
-
-  const response = await apiServer.get<NoteHttpResponse>("/", { params });
   return response.data;
 }
 

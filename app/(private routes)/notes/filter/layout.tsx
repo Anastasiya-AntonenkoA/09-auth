@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import css from "./layoutNotes.module.css";
 
 interface NotesLayoutProps {

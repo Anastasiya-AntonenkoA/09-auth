@@ -14,7 +14,3 @@ export interface CreateNoteHttpResponse {
     content: string;
     tag: NoteTag;
 }
-
-export interface NotesClientProps {
-    tag: NoteTag | null;
-}
