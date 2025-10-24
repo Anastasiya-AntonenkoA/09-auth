@@ -30,22 +30,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const NoteDetailsPage = async ({ params }: Props) => {
-    const { id } = await params;
-    const queryClient = new QueryClient();
-    const dehydratedState = dehydrate(queryClient);
+  const { id } = await params;
+  const queryClient = new QueryClient();
 
-    if (id) {
-        await queryClient.prefetchQuery({
-            queryKey: ["note", id],
-            queryFn: () => fetchNoteByIdServer(id),
-        });
-    }
+  await queryClient.prefetchQuery({
+    queryKey: ["note", id],
+    queryFn: () => fetchNoteByIdServer(id),
+  });
 
-    return (
-        <HydrationBoundary state={dehydratedState}>
-            <NoteDetailsClient />
-        </HydrationBoundary>
-    );
+  return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <NoteDetailsClient />
+    </HydrationBoundary>
+  );
 };
 
 export default NoteDetailsPage;
